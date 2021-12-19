@@ -1,0 +1,22 @@
+<template>
+  <div>
+    <nav-top></nav-top>
+    <search></search>
+    <content-main></content-main>
+    <floor></floor>
+  </div>
+</template>
+
+<script>
+import Floor from '../components/Floor.vue';
+import NavTop from '../components/NavTop.vue';
+import Search from "../components/Search.vue";
+import ContentMain from "./content/ContentMain.vue";
+
+export default {
+  components: { Search, ContentMain, Floor, NavTop,},
+};
+</script>
+
+<style scoped>
+</style>
