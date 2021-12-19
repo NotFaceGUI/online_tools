@@ -1,0 +1,17 @@
+input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    padding: 0 1em;
+    border: 2px solid rgba(126, 126, 126, 0);
+    outline: none;
+    border-radius: 5px;
+    background-color: rgba(29, 29, 29, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgba(29, 29, 29, 0);
+}
