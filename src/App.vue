@@ -73,11 +73,19 @@ body {
   .right {
     float: right;
   }
-
-  
 }
 
 .clear {
-    clear: both;
+  clear: both;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 </style>
