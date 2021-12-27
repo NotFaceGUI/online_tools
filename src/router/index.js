@@ -10,27 +10,24 @@ const routes = [{
     component: Index
   },
   {
-    path: '/register',
-    name: 'Register',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import( /* webpackChunkName: "about" */ '../views/Register.vue')
-  },
-  {
     path: '/login',
     name: 'Login',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import( /* webpackChunkName: "about" */ '../views/Login.vue')
+  },
+  {
+    path: '/user/:name',
+    name: 'user',
+    component: () => import('../views/User.vue')
   }
 
 
 ]
 
 const router = new VueRouter({
-  base: '/online/',
+  base: '/',
   mode: 'history',
   routes
 })

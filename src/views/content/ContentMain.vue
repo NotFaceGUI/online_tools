@@ -1,5 +1,8 @@
 <template>
   <div class="content">
+    <transition name="fade">
+      <loading v-if="isLoading"></loading>
+    </transition>
     <div class="tab">
       <ul class="tab-tilte">
         <li
@@ -52,41 +55,59 @@
   overflow: hidden;
   width: 80%;
   border-radius: 15px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
 }
+
 </style>
 
 <script>
+import Loading from "../Loading.vue";
 import TagContent from "./components/TagContent.vue";
 export default {
-  components: { TagContent },
+  components: { TagContent, Loading },
   name: "ContentMain",
   data() {
     return {
-      tab_title: ["全部", "工具"],
+      tab_title: [],
       tab: {
         tag: "全部",
         data: {},
       },
       current: 0,
+      isLoading: true,
     };
   },
   mounted() {
     // 默认获取全部数据
     this.axios
-      .get("/api/DemoServlet", { params: { tag: this.tab.tag } })
+      .post(
+        "/online/api/DemoServlet",
+        this.qs.stringify({
+          username: "admin",
+          password: "123456",
+        }),
+        { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+      )
       .then((res) => {
+        console.log(res);
         this.tab.data = res.data;
+        this.isLoading = false;
       });
+    // 获取全部tag类型
+    this.axios.get("/online/api/TagServlet").then((res) => {
+      this.tab_title = res.data;
+    });
   },
   methods: {
     // 当切换值的时候，发送请求获取对应的数据
     req(index) {
+      this.isLoading = true;
       this.axios
-        .get("/api/DemoServlet", { params: { tag: this.tab.tag } })
+        .get("/online/api/DemoServlet", { params: { tag: this.tab.tag } })
         .then((res) => {
           console.log(index);
           this.tab.data = res.data;
+          this.isLoading = false;
         });
     },
   },
