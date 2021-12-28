@@ -6,7 +6,9 @@
     <div class="grid">
       <card v-for="i in 100" :key="i" :id="i"></card>
     </div>
-    -END-
+    <div class="bottomLine">
+      <a href="https://github.com/NotFaceGUI" class="icon"></a>
+    </div>
   </div>
 </template>
 
@@ -45,5 +47,23 @@ export default {
   gap: 13px;
   grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
   justify-content: space-evenly;
+}
+
+.bottomLine {
+  box-sizing: border-box;
+  color: var(--bg-color);
+  font-weight: normal;
+  text-shadow: 0 0 0;
+  height: 35px;
+  border-top: 2px #2424248c dashed;
+}
+
+.icon {
+  margin: 5px 0;
+  text-decoration: none;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("../../../assets/icon/github.png") no-repeat;
 }
 </style>

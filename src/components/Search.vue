@@ -44,6 +44,8 @@ a:hover {
 }
 input {
   margin-top: 45px;
+  /* font-size: 18px !important; */
+  /* font-weight: bold; */
   width: 350px;
   height: 40px;
   color: var(--bg-color);

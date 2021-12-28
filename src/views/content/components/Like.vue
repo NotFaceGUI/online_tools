@@ -1,6 +1,6 @@
 <template>
-  <div id="main-content">
-    <div>
+  <div id="main-content" style="display: inline-block; vertical-align: middle">
+    <div style="display: inline-block">
       <input type="checkbox" class="checkbox" :id="id" />
       <label :for="id">
         <svg
@@ -79,6 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 h1 {
   font-size: 14px;
   font-weight: 400;
@@ -98,7 +99,7 @@ a {
 svg {
   cursor: pointer;
   overflow: visible;
-  width: 60px;
+  width: 40px;
   #heart {
     transform-origin: center;
     animation: animateHeartOut 0.3s linear forwards;
