@@ -20,6 +20,6 @@ export default {
 
     .box {
         margin: 20px 0;
-        color: #ccc;
+        color: var(--bg-color);
     }
 </style>

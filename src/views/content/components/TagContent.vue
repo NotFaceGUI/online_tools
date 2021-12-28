@@ -6,6 +6,7 @@
     <div class="grid">
       <card v-for="i in 100" :key="i" :id="i"></card>
     </div>
+    -END-
   </div>
 </template>
 

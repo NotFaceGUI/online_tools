@@ -6,6 +6,10 @@
 
 
 <style lang="scss">
+:root {
+  --bg-color: #242424;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -16,7 +20,17 @@ a {
 }
 
 body {
-  background: url("assets/bg.png") #b48c6e repeat top !important;
+  // background: url("assets/bg.png") #b48c6e repeat top !important;
+
+  background-color: rgb(214, 214, 214);
+  background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.15) 10%,
+      rgba(0, 0, 0, 0) 10%
+    ),
+    linear-gradient(rgba(0, 0, 0, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
+  background-size: 15px 15px;
+  // background-color: white;
 }
 
 #app {
@@ -41,7 +55,7 @@ body {
   -moz-box-shadow: 1px 5px 15px 4px rgba(0, 0, 0, 0.7);
 
   // padding: 30px;
-  background-color: #795a40;
+  background-color: #242424;
 
   a {
     font-weight: bold;

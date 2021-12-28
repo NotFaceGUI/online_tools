@@ -26,7 +26,8 @@ export default {
 .card {
   width: 100%;
   height: 150px;
-  background-color: pink;
+  border-radius: 15px;
+  background-color: #7fb2db9d;
   background-size: cover;
   box-shadow: 0 1px 5px #00000099;
   position: relative;
@@ -34,10 +35,13 @@ export default {
   transition-property: transform, box-shadow;
   transition-timing-function: ease-out;
   transform: rotate3d(0);
+  /* transition: all 0.5s ease; */
 }
 
 .card:hover {
   transition-duration: 150ms;
+  /* transform: scale3d(1.1, 1.1, 1.1) !important; */
+  z-index: 10;
   box-shadow: 0 5px 20px 5px #00000044;
 }
 
@@ -45,6 +49,8 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
+  border-radius: 15px;
+
   height: 100%;
   width: 100%;
 }

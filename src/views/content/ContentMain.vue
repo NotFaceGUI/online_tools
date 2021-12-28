@@ -27,10 +27,9 @@
 </template>
 
 <style scoped>
-
 .tab-tilte {
   list-style: none;
-  color: #000;
+  color: var(--bg-color);
   height: 40px;
   line-height: 40px;
   font-size: 18px;
@@ -49,17 +48,25 @@
 }
 
 .tab-tilte .select {
-  background-color: #795a40;
+  background-color: var(--bg-color);
   color: #fff;
 }
 
 .content {
   margin: 0 auto;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 70%;
   max-width: 1226px;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.8);
+  background-image: linear-gradient(
+      90deg,
+      rgba(180, 180, 180, 0.15) 10%,
+      rgba(0, 0, 0, 0) 10%
+    ),
+    linear-gradient(rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
+  background-size: 15px 15px;
+  box-shadow: 0 1px 5px #00000099;
   animation: set-in 1s ease;
 }
 

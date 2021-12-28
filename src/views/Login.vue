@@ -52,6 +52,7 @@
         </button>
       </div>
       <div id="mask" ref="mask">
+        <div class="fg">123</div>
         <msg :msg="msg" :show="show" :color="color" :top="top"></msg>
         <div class="wall">
           <form action="" method="get" class="login_form" ref="login_form">
@@ -492,7 +493,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../assets/bg.png") #b48c6e repeat top !important;
+  background: url("../assets/bg.jpg");
   /* filter: url(blur.svg#blur); */ /* FireFox, Chrome, Opera */
 
   -webkit-filter: blur(5px); /* Chrome, Opera */
@@ -522,36 +523,51 @@ export default {
   left: 30px;
   width: 350px;
   height: 600px;
-  /* background-color: #70533c; */
-  background: #926844;
+  background: rgba(62, 104, 163, 1);
   background: -moz-linear-gradient(
     -45deg,
-    #926844 1%,
-    #70533c 20%,
-    #70533c 50%,
-    #70533c 50%,
-    #70533c 80%,
-    #926844 100%
+    rgba(62, 104, 163, 1) 0%,
+    rgba(24, 62, 116, 1) 20%,
+    rgba(24, 62, 116, 1) 80%,
+    rgba(62, 104, 163, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(62, 104, 163, 1)),
+    color-stop(20%, rgba(24, 62, 116, 1)),
+    color-stop(80%, rgba(24, 62, 116, 1)),
+    color-stop(100%, rgba(62, 104, 163, 1))
   );
   background: -webkit-linear-gradient(
     -45deg,
-    #926844 1%,
-    #70533c 20%,
-    #70533c 50%,
-    #70533c 50%,
-    #70533c 80%,
-    #926844 100%
+    rgba(62, 104, 163, 1) 0%,
+    rgba(24, 62, 116, 1) 20%,
+    rgba(24, 62, 116, 1) 80%,
+    rgba(62, 104, 163, 1) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(62, 104, 163, 1) 0%,
+    rgba(24, 62, 116, 1) 20%,
+    rgba(24, 62, 116, 1) 80%,
+    rgba(62, 104, 163, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    rgba(62, 104, 163, 1) 0%,
+    rgba(24, 62, 116, 1) 20%,
+    rgba(24, 62, 116, 1) 80%,
+    rgba(62, 104, 163, 1) 100%
   );
   background: linear-gradient(
     135deg,
-    #926844 1%,
-    #70533c 20%,
-    #70533c 50%,
-    #70533c 50%,
-    #70533c 80%,
-    #926844 100%
+    rgba(62, 104, 163, 1) 0%,
+    rgba(24, 62, 116, 1) 20%,
+    rgba(24, 62, 116, 1) 80%,
+    rgba(62, 104, 163, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#926844', endColorstr='#926844',GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e68a3', endColorstr='#3e68a3', GradientType=1 );
 
   border-radius: 50px;
   transition: all 0.7s ease-in-out;
@@ -559,6 +575,22 @@ export default {
   -webkit-box-shadow: -4px 2px 23px 2px rgba(0, 0, 0, 0.56);
   -moz-box-shadow: -4px 2px 23px 2px rgba(0, 0, 0, 0.56);
   transform: translateX(0px);
+}
+
+.fg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  /* background: url("../assets/fg.png"); */
+  background-color: #183e74;
+  -webkit-filter: blur(5px); /* Chrome, Opera */
+  -moz-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+  animation: bounce-in 1s cubic-bezier(0.01, 0.88, 0.3, 1);
 }
 .login {
   position: absolute;
@@ -659,9 +691,10 @@ export default {
 
 .reg_error {
   font-size: 14px;
+  font-weight: bold;
   overflow: hidden;
   height: 0px;
-  color: rgb(255, 95, 67);
+  color: rgb(255, 68, 68);
   transition: all 0.4s ease-in-out;
 }
 

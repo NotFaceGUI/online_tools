@@ -26,7 +26,7 @@ a {
   display: inline-block;
   text-decoration: none;
   width: 50px;
-  color: rgb(226, 226, 226);
+  color: var(--bg-color);
   line-height: 20px;
   border-radius: 5px;
   transition: all 0.2s ease-out;
@@ -46,12 +46,17 @@ input {
   margin-top: 45px;
   width: 350px;
   height: 40px;
-  color: rgb(226, 226, 226);
+  color: var(--bg-color);
   font-size: 16px;
 }
 
 input::-webkit-input-placeholder {
-  color: rgb(226, 226, 226);
+  color: var(--bg-color);
+}
+
+input:focus {
+    border: 2px solid var(--bg-color);
+    background-color: rgba(29, 29, 29, 0);
 }
 
 .hotWord {
