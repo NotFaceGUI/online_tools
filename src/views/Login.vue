@@ -2,8 +2,55 @@
   <div>
     <nav-top></nav-top>
     <div id="login">
-      <!-- <div class="login"></div>
-      <div class="reg"></div> -->
+      <div class="login">
+        <div class="tip">
+          <h2>欢迎</h2>
+          <h2>新用户!</h2>
+          <br />
+          <h2>如果你</h2>
+          <h2>有账户？</h2>
+          <br />
+          <h2>点击下面</h2>
+          <h2>的按钮~</h2>
+        </div>
+
+        <button
+          class="login_button"
+          type="button"
+          style="
+            -moz-box-shadow: -2px 2px 20px #333333;
+            -webkit-box-shadow: -2px 2px 20px #333333;
+            box-shadow: -2px 2px 20px #333333;
+          "
+          @click="move_left()"
+        >
+          <span>LOG IN</span>
+        </button>
+      </div>
+      <div class="reg">
+        <div class="tip">
+          <h2>欢迎</h2>
+          <h2>登录</h2>
+          <br />
+          <h2></h2>
+          <h2>没有账户</h2>
+          <br />
+          <h2>点击下面</h2>
+          <h2>按钮注册</h2>
+        </div>
+        <button
+          class="login_button"
+          type="button"
+          style="
+            -moz-box-shadow: -2px 2px 20px #333333;
+            -webkit-box-shadow: -2px 2px 20px #333333;
+            box-shadow: -2px 2px 20px #333333;
+          "
+          @click="move()"
+        >
+          <span>Sing UP</span>
+        </button>
+      </div>
       <div id="mask" ref="mask">
         <msg :msg="msg" :show="show" :color="color" :top="top"></msg>
         <div class="wall">
@@ -103,6 +150,7 @@ export default {
       show: false,
       color: false,
       top: 450,
+      isAnimation: false,
       //=======注册========
       stateMachine: [
         {
@@ -147,6 +195,9 @@ export default {
       ],
     };
   },
+  mounted() {
+    document.body.style.overflow = "hidden";
+  },
   methods: {
     req() {
       this.axios
@@ -178,6 +229,7 @@ export default {
             this.show = true;
             setTimeout(() => {
               this.show = false;
+              this.isAnimation = true;
               setTimeout(() => {
                 this.$router.push("/");
               }, 700);
@@ -426,6 +478,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
+  animation: bounce-in 1s cubic-bezier(0.01, 0.88, 0.3, 1);
 }
 
 #login::after {
@@ -448,6 +501,17 @@ export default {
   filter: blur(5px);
 
   filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+  animation: bounce-in 1s cubic-bezier(0.01, 0.88, 0.3, 1);
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(10);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 #mask {
@@ -496,13 +560,16 @@ export default {
   -moz-box-shadow: -4px 2px 23px 2px rgba(0, 0, 0, 0.56);
   transform: translateX(0px);
 }
-
 .login {
-  border-radius: 20px;
-  display: inline-block;
+  position: absolute;
+  top: calc(50% - 68px);
+  text-align: center;
+  z-index: 10;
   width: 400px;
   height: 500px;
-  background-color: rgb(255, 197, 158);
+  border-radius: 20px;
+  display: inline-block;
+  /* background-color: rgb(255, 197, 158); */
 }
 
 .login_button {
@@ -527,11 +594,44 @@ export default {
 }
 
 .reg {
-  border-radius: 20px;
-  display: inline-block;
+  position: absolute;
+  left: 400px;
+  top: calc(50% - 68px);
+  text-align: center;
+  z-index: 10;
   width: 400px;
   height: 500px;
-  background-color: skyblue;
+  border-radius: 20px;
+  display: inline-block;
+  /* background-color: skyblue; */
+}
+
+.reg > button {
+  background: #4aff508f;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  border: #fff 3px solid;
+  border-radius: 8px;
+}
+
+.reg > button:hover {
+  background: #31a7358f;
+}
+
+.login > button {
+  background: rgba(204, 14, 14, 0.589);
+  font-size: 18px;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  border: #fff 3px solid;
+  border-radius: 8px;
+}
+
+.login > button:hover {
+  background: rgba(158, 11, 11, 0.589);
 }
 
 .input_error {
