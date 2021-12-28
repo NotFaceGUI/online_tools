@@ -1,8 +1,18 @@
 <template>
   <div class="card">
     <div class="glow">
-      123456464564
-      <like :id="id"></like>
+      <div class="img"></div>
+      <div class="title">
+        <span>hex转字符串</span>
+      </div>
+      <!-- <p>/p> -->
+      <div class="like">
+        <like :id="id"></like>
+        <span>123人收藏</span>
+      </div>
+      <div class="desc">
+        <span>hex和字符串的互相转换</span>
+      </div>
     </div>
   </div>
 </template>
@@ -15,6 +25,10 @@ export default {
   name: "card",
   props: {
     id: Number,
+    title: String,
+    desc: String,
+    img: String,
+    routingSrc: String,
   },
   mounted() {
     fun(this.id - 1);
@@ -27,7 +41,7 @@ export default {
   width: 100%;
   height: 150px;
   border-radius: 15px;
-  background-color: #7fb2db9d;
+  background-color: #242424de;
   background-size: cover;
   box-shadow: 0 1px 5px #00000099;
   position: relative;
@@ -50,7 +64,6 @@ export default {
   left: 0;
   top: 0;
   border-radius: 15px;
-
   height: 100%;
   width: 100%;
 }
@@ -64,4 +77,40 @@ export default {
 
   background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
 } */
+
+.img {
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 32px);
+  left: 10px;
+  width: 64px;
+  height: 64px;
+  background: url("../../../assets/icon/str.png") no-repeat;
+}
+
+.like {
+  font-size: 14px;
+  vertical-align: middle;
+  font-weight: normal;
+  position: absolute;
+  text-align: left;
+  height: 40px;
+  top: 60px;
+  left: 70px;
+}
+
+.title {
+  position: absolute;
+  font-size: 30px;
+  top: 20px;
+  left: 81px;
+}
+
+.desc {
+  position: absolute;
+  top: 100px;
+  left: 81px;
+  font-size: 16px;
+  font-weight: normal;
+}
 </style>
