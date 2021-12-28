@@ -153,7 +153,7 @@
         </div>
       </div>
       <div class="RightForm">
-        <person-web :name='name'></person-web>
+        <person-web :name='name' :password='password' :describe='describe'></person-web>
       </div>
       ------------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
@@ -168,9 +168,12 @@ import PersonWeb from "./components/personWeb.vue";
 export default {
   components: { NavTop, Floor, PersonWeb },
   name: "User",
+  password:'123',
+  describe:'eee',
   data() {
     return {
       name: sessionStorage.getItem("username"),
+      password: sessionStorage.getItem("password"),
     };
   },
 };
