@@ -5,21 +5,21 @@
       <dl class="form-group">
         <dt>
           <span class="labels">用户名:</span
-          ><input type="text" class="InputStyle" />
+          ><input type="text" class="InputStyle" readonly ondblclick="this.readOnly=false" onchange="this.readOnly=true" :value="name" />
         </dt>
         <dt><label>你可以在此修改你喜欢的用户名哦~~~</label></dt>
       </dl>
       <dl class="form-group">
         <dt>
           <span class="labels">个人简介:</span>
-          <textarea name="TextArea" id="TextArea" cols="30" rows="10"></textarea>
+          <textarea name="TextArea" id="TextArea" cols="30" rows="10" readonly ondblclick="this.readOnly=false" onchange="this.readOnly=true"></textarea>
         </dt>
         <dt><label>你可以在此修改你喜欢的个人简介哦~~~</label></dt>
       </dl>
       <dl class="form-group">
         <dt>
           <span class="labels">用户密码:</span
-          ><input type="password" class="InputStyle" />
+          ><input type="password" class="InputStyle" readonly ondblclick="this.readOnly=false" onchange="this.readOnly=true" :value="password"/>
         </dt>
         <dt><label>你可以在此修改你用户密码哦~~~</label></dt>
       </dl>
@@ -32,7 +32,17 @@
 </template>
 <script>
 export default {
-    
+    name:"personWeb",
+    password:"123",
+    describe:"eee",
+    alterPs:true,
+    alterTA:false,
+    alterName:false,
+    props:{
+      name:String,
+      password:String,
+      describe:String
+    }
 };
 </script>
 <style scoped>
@@ -75,7 +85,7 @@ input {
   margin-left: 2%;
   width: 67%;
   height: 27px;
-  border:5px solid #6b3d00;
+  border:5px solid #3f3e3e;
   padding-left: 0.5%;
 }
 .form-group {
@@ -101,14 +111,15 @@ label {
 }
 textarea{  
   margin-left: 2%;
-  width:65%;
+  padding-left: 1%;
+  width:63%;
   font-size:14px;
   resize: none;
   vertical-align: top;
   border-radius:10px;
   height: 40px;
-  border:6px solid #6b3d00;
-  background-color: #ac967a;
+  border:6px solid #474747;
+  background-color: #c7c6c5;
   line-break: auto;
 }
 </style>
