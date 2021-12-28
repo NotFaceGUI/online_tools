@@ -5,7 +5,10 @@
       <div class="LeftForm">
         <div class="LeftTop">
           <!--头像图标-->
-          <div class="imgs"><a href=""><img src="../../assets/userimg.png" width="100%" /></a><br /></div>
+          <div class="imgs">
+            <a href=""><img src="../../assets/userimg.png" width="100%" /></a
+            ><br />
+          </div>
           <!--根据是否vip显示vip图标-->
           <svg
             v-show="true"
@@ -150,9 +153,9 @@
         </div>
       </div>
       <div class="RightForm">
-        <person-web></person-web>
+        <person-web :name='name' :password='password' :describe='describe'></person-web>
       </div>
-      hello
+      ------------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
     <floor></floor>
   </div>
@@ -165,9 +168,12 @@ import PersonWeb from "./components/personWeb.vue";
 export default {
   components: { NavTop, Floor, PersonWeb },
   name: "User",
+  password:'123',
+  describe:'eee',
   data() {
     return {
       name: sessionStorage.getItem("username"),
+      password: sessionStorage.getItem("password"),
     };
   },
 };
@@ -178,18 +184,41 @@ export default {
   width: 70%;
   text-align: left;
   margin: auto;
-  margin-top: 1%;
+  margin-top: 3%;
   border-radius: 4px;
+  max-width: 1226px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: linear-gradient(
+      90deg,
+      rgba(180, 180, 180, 0.15) 10%,
+      rgba(0, 0, 0, 0) 10%
+    ),
+    linear-gradient(rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
+  background-size: 15px 15px;
+  box-shadow: 0 1px 5px #00000099;
+  -webkit-animation: set-in-data-v-6a2068f2 1s ease;
+  animation: set-in-data-v-6a2068f2 1s ease;
 }
 .LeftForm {
   margin-top: 0.5%;
   display: inline-block;
-  background-color: rgb(160, 126, 72);
+  background: rgba(214, 214, 214, 1);
+  background: linear-gradient(
+    135deg,
+    rgba(214, 214, 214, 1) 0%,
+    rgba(214, 214, 214, 1) 4%,
+    rgba(230, 230, 230, 1) 27%,
+    rgba(184, 184, 184, 1) 62%,
+    rgba(184, 184, 184, 1) 83%,
+    rgba(184, 184, 184, 1) 100%
+  );
   width: 25%;
   margin-left: 1%;
-  border-radius: 4px;
-  border-color: rgb(49, 46, 46);
+  border-radius: 8px;
+  border-color: rgb(144, 143, 143);
   border: 2px;
+  box-shadow: 0 1px 5px #00000099;
 }
 .LeftTop {
   letter-spacing: normal;
@@ -209,19 +238,21 @@ export default {
 }
 .RightForm {
   display: inline-block;
-  background-color: rgb(228, 199, 153);
+  background-color: rgb(224, 224, 224);
   margin-left: 1%;
   margin-top: 0.5%;
   vertical-align: top;
   height: 100%;
   width: 72%;
   border-radius: 4px;
+  box-shadow: 0 1px 5px #00000099;
 }
 .imgs {
   margin: auto;
-  width: 100px;
-  height: 100px;
+  width: 68%;
+  height: 68%;
   overflow: hidden;
+  position: relative;
   border-radius: 50%;
 }
 </style>
