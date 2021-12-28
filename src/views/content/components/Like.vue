@@ -1,8 +1,8 @@
 <template>
   <div id="main-content">
     <div>
-      <input type="checkbox" id="checkbox" />
-      <label for="checkbox">
+      <input type="checkbox" class="checkbox" :id="id" />
+      <label :for="id">
         <svg
           id="heart-svg"
           viewBox="467 392 58 57"
@@ -72,6 +72,9 @@
 <script>
 export default {
   name: "like",
+  props: {
+    id: Number,
+  },
 };
 </script>
 
@@ -105,11 +108,11 @@ svg {
   }
 }
 
-#checkbox {
+.checkbox {
   display: none;
 }
 
-#checkbox:checked + label svg {
+.checkbox:checked + label svg {
   #heart {
     transform: scale(0.2);
     fill: #e2264d;

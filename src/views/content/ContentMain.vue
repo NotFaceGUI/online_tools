@@ -27,6 +27,7 @@
 </template>
 
 <style scoped>
+
 .tab-tilte {
   list-style: none;
   color: #000;
@@ -37,11 +38,13 @@
 }
 
 .tab-tilte li {
+  margin: 10px 0 0 10px;
   box-sizing: border-box;
   float: left;
   width: 80px;
   cursor: pointer;
   transition: background-color 0.2s;
+  border-radius: 40px;
   /* border-bottom: 2px solid rgb(255, 255, 255); */
 }
 
@@ -53,11 +56,22 @@
 .content {
   margin: 0 auto;
   overflow: hidden;
-  width: 80%;
+  width: 70%;
+  max-width: 1226px;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.8);
+  animation: set-in 1s ease;
 }
 
+@keyframes set-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 </style>
 
 <script>
@@ -98,6 +112,7 @@ export default {
       this.tab_title = res.data;
     });
   },
+
   methods: {
     // 当切换值的时候，发送请求获取对应的数据
     req(index) {

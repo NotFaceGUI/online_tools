@@ -15,6 +15,9 @@ import ContentMain from "./content/ContentMain.vue";
 
 export default {
   components: { Search, ContentMain, Floor, NavTop,},
+  mounted(){
+    document.body.style.overflow = "";
+  }
 };
 </script>
 

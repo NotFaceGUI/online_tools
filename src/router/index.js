@@ -23,13 +23,21 @@ const routes = [{
     component: () => import('../views/User.vue')
   }
 
-
 ]
+
+
 
 const router = new VueRouter({
   base: '/',
   mode: 'history',
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  document.body.scrollTop = 0
+  // firefox
+  document.documentElement.scrollTop = 0
+  next()
 })
 
 export default router
