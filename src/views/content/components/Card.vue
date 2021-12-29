@@ -1,9 +1,9 @@
 <template>
   <div class="card">
-    <div class="glow">
+    <div class="glow" @click.self="clickToURL(id)">
       <div class="img"></div>
       <div class="title">
-        <span>hex转字符串</span>
+        <span>{{ tab.title }}</span>
       </div>
       <!-- <p>/p> -->
       <div class="like">
@@ -11,7 +11,7 @@
         <span>123人收藏</span>
       </div>
       <div class="desc">
-        <span>hex和字符串的互相转换</span>
+        <span>{{ tab.desc }}</span>
       </div>
     </div>
   </div>
@@ -25,13 +25,15 @@ export default {
   name: "card",
   props: {
     id: Number,
-    title: String,
-    desc: String,
-    img: String,
-    routingSrc: String,
+    tab: Object,
   },
   mounted() {
     fun(this.id - 1);
+  },
+  methods: {
+    clickToURL(id) {
+      console.log("点击了卡片" + id);
+    },
   },
 };
 </script>
@@ -110,6 +112,8 @@ export default {
   position: absolute;
   top: 100px;
   left: 81px;
+  padding-right: 1em;
+  text-align: left;
   font-size: 16px;
   font-weight: normal;
 }
