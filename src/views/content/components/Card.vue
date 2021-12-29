@@ -7,8 +7,8 @@
       </div>
       <!-- <p>/p> -->
       <div class="like">
-        <like :id="id"></like>
-        <span>123人收藏</span>
+        <like :id="id" :num="num"></like>
+        <span>{{ num + " 人收藏" }}</span>
       </div>
       <div class="desc">
         <span>{{ tab.desc }}</span>
@@ -26,6 +26,11 @@ export default {
   props: {
     id: Number,
     tab: Object,
+  },
+  data() {
+    return {
+      num: 0,
+    };
   },
   mounted() {
     fun(this.id - 1);
@@ -102,8 +107,9 @@ export default {
 }
 
 .title {
+  text-align: left;
   position: absolute;
-  font-size: 30px;
+  font-size: 28px;
   top: 20px;
   left: 81px;
 }
