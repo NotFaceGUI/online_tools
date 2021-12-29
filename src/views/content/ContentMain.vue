@@ -99,35 +99,25 @@ export default {
     };
   },
   mounted() {
-    // 默认获取全部数据
-    this.axios
-      .post(
-        "/online/api/DemoServlet",
-        this.qs.stringify({
-          username: "admin",
-          password: "123456",
-        }),
-        { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
-      )
-      .then((res) => {
-        console.log(res);
-        this.tab.data = res.data;
-        this.isLoading = false;
-      });
     // 获取全部tag类型
     this.axios.get("/online/api/TagServlet").then((res) => {
       this.tab_title = res.data;
     });
+    // 默认获取全部数据
+    this.req();
   },
 
   methods: {
     // 当切换值的时候，发送请求获取对应的数据
-    req(index) {
+    req() {
       this.isLoading = true;
       this.axios
-        .get("/online/api/DemoServlet", { params: { tag: this.tab.tag } })
+        .get("/online/api/CardServlet", {
+          params: {
+            current: this.current,
+          },
+        })
         .then((res) => {
-          console.log(index);
           this.tab.data = res.data;
           this.isLoading = false;
         });

@@ -4,7 +4,12 @@
     {{ tab }} -->
     <!-- 在此处写表格内容 -->
     <div class="grid">
-      <card v-for="i in 100" :key="i" :id="i"></card>
+      <card
+        v-for="(item, i) in tab.data"
+        :key="i"
+        :id="i + 1"
+        :tab="item"
+      ></card>
     </div>
     <div class="bottomLine">
       <a href="https://github.com/NotFaceGUI" class="icon github"></a>
@@ -24,11 +29,6 @@ export default {
   props: {
     current: Number,
     tab: Object,
-  },
-  data() {
-    return {
-      list: [1, 2, 3, 4, 5, 6],
-    };
   },
 };
 </script>
