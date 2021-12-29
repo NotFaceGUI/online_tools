@@ -49,7 +49,7 @@ export default {
   0% {
     opacity: 0;
     left: 0px;
-    top: 400px;
+    top: 300px;
   }
 
   80% {

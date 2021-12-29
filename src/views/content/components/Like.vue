@@ -1,7 +1,12 @@
 <template>
   <div id="main-content" style="display: inline-block; vertical-align: middle">
     <div style="display: inline-block">
-      <input type="checkbox" class="checkbox" :id="id" @click.stop="" />
+      <input
+        type="checkbox"
+        class="checkbox"
+        :id="id"
+        @click.stop="flag == false ? add() : reduce()"
+      />
       <label :for="id">
         <svg
           id="heart-svg"
@@ -74,7 +79,22 @@ export default {
   name: "like",
   props: {
     id: Number,
-    num: Number,
+    tab: Object,
+  },
+  data() {
+    return {
+      flag: false,
+    };
+  },
+  methods: {
+    add() {
+      this.tab.numberOfCollections += 1;
+      this.flag = true;
+    },
+    reduce() {
+      this.tab.numberOfCollections -= 1;
+      this.flag = false;
+    },
   },
 };
 </script>

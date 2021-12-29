@@ -118,7 +118,23 @@ export default {
           },
         })
         .then((res) => {
+          console.log(res);
           this.tab.data = res.data;
+
+          // for (let i = 0; i < this.tab.data.length; i++) {
+          //   this.card_list.push(this.tab.data[i].card_id);
+          // }
+
+          // this.axios
+          //   .get("/online/api/NumberServlet", {
+          //     params: {
+          //       card: this.card_list,
+          //     },
+          //   })
+          //   .then((res) => {
+          //     // console.log(res);
+          //     this.card_list = res.data;
+          //   });
           this.isLoading = false;
         });
     },
