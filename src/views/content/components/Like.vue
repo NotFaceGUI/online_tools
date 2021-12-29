@@ -1,7 +1,12 @@
 <template>
   <div id="main-content" style="display: inline-block; vertical-align: middle">
     <div style="display: inline-block">
-      <input type="checkbox" class="checkbox" :id="id" />
+      <input
+        type="checkbox"
+        class="checkbox"
+        :id="id"
+        @click.stop="() => {}"
+      />
       <label :for="id">
         <svg
           id="heart-svg"
@@ -79,7 +84,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 h1 {
   font-size: 14px;
   font-weight: 400;
