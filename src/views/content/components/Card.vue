@@ -1,13 +1,18 @@
 <template>
   <div class="card">
     <div class="glow" @click.self="clickToURL(id)">
-      <div class="img"></div>
+      <div
+        class="img"
+        :style="{
+          'background-image': 'url(' + require('@/assets/' + tab.name + '.png') + ')',
+        }"
+      ></div>
       <div class="title">
         <span>{{ tab.title }}</span>
       </div>
       <!-- <p>/p> -->
       <div class="like">
-        <like :id="id" :tab="tab"></like>
+        <like :id="id" :tab="tab" :topState="currentUserLike()"></like>
         <span>{{ tab.numberOfCollections + " 人收藏" }}</span>
       </div>
       <div class="desc">
@@ -26,13 +31,21 @@ export default {
   props: {
     id: Number,
     tab: Object,
+    card_list: Array,
   },
+
   mounted() {
     fun(this.id - 1);
   },
   methods: {
     clickToURL(id) {
       console.log("点击了卡片" + id);
+    },
+    currentUserLike() {
+      if (this.card_list == null) {
+        return false;
+      }
+      return this.card_list.indexOf(this.tab.card_id) != -1;
     },
   },
 };
@@ -87,7 +100,8 @@ export default {
   left: 10px;
   width: 64px;
   height: 64px;
-  background: url("../../../assets/icon/str.png") no-repeat;
+  background: no-repeat;
+  /* background: url("../../../assets/icon/str.png") no-repeat; */
 }
 
 .like {

@@ -93,6 +93,7 @@ export default {
       tab: {
         tag: "全部",
         data: {},
+        card_list: [],
       },
       current: 0,
       isLoading: true,
@@ -125,16 +126,16 @@ export default {
           //   this.card_list.push(this.tab.data[i].card_id);
           // }
 
-          // this.axios
-          //   .get("/online/api/NumberServlet", {
-          //     params: {
-          //       card: this.card_list,
-          //     },
-          //   })
-          //   .then((res) => {
-          //     // console.log(res);
-          //     this.card_list = res.data;
-          //   });
+          this.axios
+            .get("/online/api/NumberServlet", {
+              params: {
+                username: sessionStorage.getItem("username"),
+              },
+            })
+            .then((res) => {
+              // console.log(res);
+              this.tab.card_list = res.data.data;
+            });
           this.isLoading = false;
         });
     },

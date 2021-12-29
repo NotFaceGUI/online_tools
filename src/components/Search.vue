@@ -1,6 +1,11 @@
 <template>
   <div class="search">
-    <input type="text" placeholder="键入内容！EX" />
+    <input
+      type="text"
+      placeholder="键入内容！EX"
+      @keyup.enter="search()"
+      v-model="value"
+    />
     <div class="hotWord">
       <ul class="list">
         <li><a href="">工具</a></li>
@@ -16,6 +21,16 @@
 <script>
 export default {
   name: "Search",
+  data() {
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    search() {
+      this.$router.push("/search");
+    },
+  },
 };
 </script>
 
@@ -57,8 +72,8 @@ input::-webkit-input-placeholder {
 }
 
 input:focus {
-    border: 2px solid var(--bg-color);
-    background-color: rgba(29, 29, 29, 0);
+  border: 2px solid var(--bg-color);
+  background-color: rgba(29, 29, 29, 0);
 }
 
 .hotWord {

@@ -36,7 +36,8 @@ export default {
   },
   methods: {
     exit() {
-      console.log(123);
+      // console.log(123);
+      location.reload();
       sessionStorage.removeItem("username");
       this.name = sessionStorage.getItem("username");
     },

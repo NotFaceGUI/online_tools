@@ -1,11 +1,13 @@
 <template>
   <div id="main-content" style="display: inline-block; vertical-align: middle">
+    <error v-show="show"></error>
     <div style="display: inline-block">
       <input
         type="checkbox"
         class="checkbox"
         :id="id"
-        @click.stop="flag == false ? add() : reduce()"
+        @click="choose()"
+        v-model="state"
       />
       <label :for="id">
         <svg
@@ -75,25 +77,71 @@
 </template>
 
 <script>
+import Error from "../../../components/Error.vue";
 export default {
+  components: { Error },
   name: "like",
   props: {
     id: Number,
     tab: Object,
+    topState: Boolean,
   },
   data() {
     return {
-      flag: false,
+      state: false,
+      show: false,
+      username: sessionStorage.getItem("username"),
+      ask: "",
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.state = this.topState;
+    }, 500);
   },
   methods: {
     add() {
       this.tab.numberOfCollections += 1;
-      this.flag = true;
+      this.ask = "update";
+      // 发送更新请求
+      this.req();
     },
     reduce() {
       this.tab.numberOfCollections -= 1;
-      this.flag = false;
+      // 发送删除请求
+      this.ask = "delete";
+      this.req();
+    },
+    choose() {
+      if (this.username == null) {
+        this.show = true;
+        setTimeout(() => {
+          setTimeout(() => {
+            this.show = false;
+          }, 500);
+          this.state = false;
+        }, 500);
+      } else {
+        if (this.state) {
+          this.reduce();
+        } else {
+          this.add();
+        }
+      }
+    },
+    req() {
+      this.axios
+        .get("/online/api/UpdateServlet", {
+          params: {
+            ask: this.ask,
+            username: this.username,
+            card_id: this.tab.card_id,
+          },
+        })
+        .then((res) => {
+          // console.log(res);
+          console.log(res);
+        });
     },
   },
 };

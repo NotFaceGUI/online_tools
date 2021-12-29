@@ -9,6 +9,7 @@
         :key="i"
         :id="i + 1"
         :tab="item"
+        :card_list="tab.card_list"
       ></card>
     </div>
     <div class="bottomLine">
