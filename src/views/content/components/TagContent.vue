@@ -7,7 +7,10 @@
       <card v-for="i in 100" :key="i" :id="i"></card>
     </div>
     <div class="bottomLine">
-      <a href="https://github.com/NotFaceGUI" class="icon"></a>
+      <a href="https://github.com/NotFaceGUI" class="icon github"></a>
+      <a href="#" class="icon twitter"></a>
+      <a href="#" class="icon wechat"></a>
+      <a href="#" class="icon qq"></a>
     </div>
   </div>
 </template>
@@ -59,11 +62,27 @@ export default {
 }
 
 .icon {
-  margin: 5px 0;
+  margin: 5px 5px;
   text-decoration: none;
   display: inline-block;
   width: 24px;
   height: 24px;
+  vertical-align: middle;
+}
+
+.github {
   background: url("../../../assets/icon/github.png") no-repeat;
+}
+
+.twitter {
+  background: url("../../../assets/icon/twitter.png") no-repeat;
+}
+
+.wechat {
+  background: url("../../../assets/icon/wechat.png") no-repeat;
+}
+
+.qq {
+  background: url("../../../assets/icon/qq.png") no-repeat;
 }
 </style>
