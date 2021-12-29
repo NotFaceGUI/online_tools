@@ -23,6 +23,7 @@
         </dt>
         <dt><label>你可以在此修改你用户密码哦~~~</label></dt>
       </dl>
+      <button type="submit" class="btn">提交修改</button>
     </div>
     <div class="RightMain">
         <span style="font-size: 30px">个人收藏:</span>
@@ -107,12 +108,11 @@ label {
   text-align: justify;
   text-align-last: justify;
   display:inline-block;
-  
 }
 textarea{  
   margin-left: 2%;
   padding-left: 1%;
-  width:63%;
+  width:64%;
   font-size:14px;
   resize: none;
   vertical-align: top;
@@ -122,4 +122,14 @@ textarea{
   background-color: #c7c6c5;
   line-break: auto;
 }
+button{
+  width: 100px;
+  height: 30px;
+  background-color: rgb(220, 240, 240);
+  border-radius: 6%;
+}
+.btn{
+  margin-left: 25%;
+}
+
 </style>

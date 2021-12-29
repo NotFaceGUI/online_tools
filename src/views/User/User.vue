@@ -219,6 +219,9 @@ export default {
   border-color: rgb(144, 143, 143);
   border: 2px;
   box-shadow: 0 1px 5px #00000099;
+  position: relative;
+  animation-name: bottom;
+  animation-duration: 0.5s;
 }
 .LeftTop {
   letter-spacing: normal;
@@ -246,6 +249,9 @@ export default {
   width: 72%;
   border-radius: 4px;
   box-shadow: 0 1px 5px #00000099;
+  position: relative;
+  animation-name: right;
+  animation-duration: 0.5s;
 }
 .imgs {
   margin: auto;
@@ -254,5 +260,13 @@ export default {
   overflow: hidden;
   position: relative;
   border-radius: 50%;
+}
+@keyframes bottom {
+  0%   {left:0px; top:400px;}
+  100% {left:0px; top:0px;}
+}
+ @keyframes right {
+  0%   {left:400px; top:0px;}
+  100% {left:0px; top:0px;}
 }
 </style>
