@@ -141,13 +141,13 @@
           <br /><br /><br /><br /><br /><br />
         </div>
         <div class="LeftBottom">
-          <button type="button" style="margin-top: 4%; letter-spacing: 7px">
+          <button type="button" style="margin-top: 4%; letter-spacing: 7px;width: 90%;" class="login_button">
             回到首页</button
           ><br />
-          <button type="button" style="margin-top: 7%; letter-spacing: 7px">
+          <button type="button" style="margin-top: 7%; letter-spacing: 7px;width: 90%;" class="login_button">
             查看收藏</button
           ><br />
-          <button type="button" style="margin-top: 15%; letter-spacing: 7px">
+          <button type="button" style="margin-top: 15%; letter-spacing: 7px;width: 90%;" class="login_button">
             退出登录</button
           ><br />
         </div>
