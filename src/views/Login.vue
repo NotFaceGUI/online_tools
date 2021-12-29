@@ -604,26 +604,6 @@ export default {
   /* background-color: rgb(255, 197, 158); */
 }
 
-.login_button {
-  box-sizing: border-box;
-  margin-top: 10px;
-  background-color: #ac7e55;
-  color: #fff;
-  border-radius: 5px;
-  border: 0px;
-  width: 250px;
-  height: 40px;
-  font-size: 16px;
-  transition: all 0.2s ease-out;
-}
-
-.login_button:hover {
-  background-color: #926844;
-}
-
-.login_button:active {
-  transform: scale(95%);
-}
 
 .reg {
   position: absolute;

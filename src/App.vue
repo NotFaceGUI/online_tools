@@ -102,4 +102,25 @@ body {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
+
+.login_button {
+  box-sizing: border-box;
+  margin-top: 10px;
+  background-color: var(--bg-color);
+  color: #fff;
+  border-radius: 5px;
+  border: 0px;
+  width: 250px;
+  height: 40px;
+  font-size: 16px;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background-color: #0f0f0f;
+  }
+
+  &:active {
+    transform: scale(95%);
+  }
+}
 </style>
