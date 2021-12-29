@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <span style="font-size: 30px">个人主页:</span>
+  <div class="RightTopFrame">
+    <span style="font-size: 30px;font-weight:bolder;">个人主页:</span>
     <div class="RightTop">
       <dl class="form-group">
         <dt>
@@ -47,10 +47,7 @@
       </dl>
       <button type="submit" class="btn">提交修改</button>
     </div>
-    <div class="RightMain">
-      <span style="font-size: 30px">个人收藏:</span>
-    </div>
-    <div class="RightBottom">基本信息</div>
+    <div class="RightMain">基本信息</div>
   </div>
 </template>
 <script>
@@ -69,35 +66,23 @@ export default {
 };
 </script>
 <style scoped>
+.RightTopFrame{
+  /* background-color: rgb(221, 221, 221); */
+  color: var(--bg-color);
+  border-radius: 3%;
+}
 .RightTop {
   letter-spacing: normal;
   width: 100%;
-  border-top: 0.1 solid black;
-  border-left: 0 solid #000;
-  border-right: 0 solid #000;
-  border-bottom: 0 solid #000;
-  border-style: solid;
+  border-top: 3px #000000f3 dashed;
   margin-top: 1%;
 }
 .RightMain {
-  letter-spacing: normal;
-  width: 100%;
-  border-top: 0.1 solid black;
-  border-left: 0 solid #000;
-  border-right: 0 solid #000;
-  border-bottom: 0px solid #000;
-  border-style: solid;
-  margin-top: 1%;
-}
-
-.RightBottom {
+  margin-top: 1.8%;
   text-align: center;
   border: 1px;
-  border-top: black;
-  border-left: 0 solid #000;
-  border-right: 0 solid #000;
-  border-bottom: 0px solid #000;
-  border-style: solid;
+  border-top: 3px #161414 dashed;
+  border-bottom: 2px #c2c0c0 dashed;
 }
 dl {
   font-weight: bolder;
@@ -110,6 +95,11 @@ input {
   height: 27px;
   /* border:5px solid #3f3e3e; */
   padding-left: 0.5%;
+}
+
+input:focus {
+    border: 2px solid var(--bg-color);
+    background-color: rgba(29, 29, 29, 0);
 }
 .form-group {
   margin: 15px 0;
@@ -136,7 +126,7 @@ textarea {
   outline: none;
   margin-left: 2%;
   padding-left: 1%;
-  width: 64%;
+  width: 67%;
   font-size: 14px;
   resize: none;
   vertical-align: top;
@@ -150,17 +140,17 @@ textarea {
 }
 
 textarea:focus {
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid var(--bg-color);
   background-color: rgba(29, 29, 29, 0);
 }
 
 button {
   width: 100px;
   height: 30px;
-  background-color: rgb(220, 240, 240);
+  background-color: rgba(204, 204, 204, 0.287);
   border-radius: 6%;
 }
 .btn {
-  margin-left: 25%;
+  margin-left: 23%;
 }
 </style>

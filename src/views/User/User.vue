@@ -149,13 +149,19 @@
           ><br />
           <button type="button" style="margin-top: 15%; letter-spacing: 7px;width: 90%;" class="login_button">
             退出登录</button
-          ><br />
+          ><br /><br>
         </div>
       </div>
       <div class="RightForm">
         <person-web :name='name' :password='password' :describe='describe'></person-web>
+        <collect></collect>
       </div>
-      ------------------------------------------------------------------------------------------------------------------------------------------------------------
+      <div class="bottomLine">
+      <a href="https://github.com/NotFaceGUI" class="icon github"></a>
+      <a href="#" class="icon twitter"></a>
+      <a href="#" class="icon wechat"></a>
+      <a href="#" class="icon qq"></a>
+    </div>
     </div>
     <floor></floor>
   </div>
@@ -164,9 +170,10 @@
 <script>
 import Floor from "../../components/Floor.vue";
 import NavTop from "../../components/NavTop.vue";
+import Collect from './components/Collect.vue';
 import PersonWeb from "./components/personWeb.vue";
 export default {
-  components: { NavTop, Floor, PersonWeb },
+  components: { NavTop, Floor, PersonWeb, Collect },
   name: "User",
   password:'123',
   describe:'eee',
@@ -201,7 +208,7 @@ export default {
   animation: set-in-data-v-6a2068f2 1s ease;
 }
 .LeftForm {
-  margin-top: 0.5%;
+  margin-top: 1%;
   display: inline-block;
   background: rgba(214, 214, 214, 1);
   background: linear-gradient(
@@ -233,22 +240,15 @@ export default {
 .LeftBottom {
   text-align: center;
   border: 1px;
-  border-top: black;
-  border-left: 0 solid #000;
-  border-right: 0 solid #000;
-  border-bottom: 0px solid #000;
-  border-style: solid;
+  border-top: 3px #2424248c dashed;
 }
 .RightForm {
   display: inline-block;
-  background-color: rgb(224, 224, 224);
   margin-left: 1%;
-  margin-top: 0.5%;
+  margin-top: 1%;
   vertical-align: top;
   height: 100%;
   width: 72%;
-  border-radius: 4px;
-  box-shadow: 0 1px 5px #00000099;
   position: relative;
   animation-name: right;
   animation-duration: 0.5s;
@@ -266,7 +266,24 @@ export default {
   100% {left:0px; top:0px;}
 }
  @keyframes right {
-  0%   {left:400px; top:0px;}
-  100% {left:0px; top:0px;}
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
 }
+.bottomLine {
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: normal;
+  height: 35px;
+  margin-top: 4%;
+  border-top: 2px #2424248c dashed;
+}
+.icon {
+  margin: 5px 5px;
+  text-decoration: none;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
 </style>
