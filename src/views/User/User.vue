@@ -141,27 +141,44 @@
           <br /><br /><br /><br /><br /><br />
         </div>
         <div class="LeftBottom">
-          <button type="button" style="margin-top: 4%; letter-spacing: 7px;width: 90%;" class="login_button">
+          <button
+            type="button"
+            style="margin-top: 4%; letter-spacing: 7px; width: 90%"
+            class="login_button"
+          >
             回到首页</button
           ><br />
-          <button type="button" style="margin-top: 7%; letter-spacing: 7px;width: 90%;" class="login_button">
+          <button
+            @click="collects = !collects"
+            type="button"
+            style="margin-top: 7%; letter-spacing: 7px; width: 90%"
+            class="login_button"
+          >
             查看收藏</button
           ><br />
-          <button type="button" style="margin-top: 15%; letter-spacing: 7px;width: 90%;" class="login_button">
+          <button
+            type="button"
+            style="margin-top: 15%; letter-spacing: 7px; width: 90%"
+            class="login_button"
+          >
             退出登录</button
-          ><br /><br>
+          ><br /><br />
         </div>
       </div>
       <div class="RightForm">
-        <person-web :name='name' :password='password' :describe='describe'></person-web>
-        <collect></collect>
+        <person-web
+          :name="name"
+          :password="password"
+          :describe="describe"
+        ></person-web>
+        <collect :collects="collects"></collect>
       </div>
       <div class="bottomLine">
-      <a href="https://github.com/NotFaceGUI" class="icon github"></a>
-      <a href="#" class="icon twitter"></a>
-      <a href="#" class="icon wechat"></a>
-      <a href="#" class="icon qq"></a>
-    </div>
+        <a href="https://github.com/NotFaceGUI" class="icon github"></a>
+        <a href="#" class="icon twitter"></a>
+        <a href="#" class="icon wechat"></a>
+        <a href="#" class="icon qq"></a>
+      </div>
     </div>
     <floor></floor>
   </div>
@@ -170,17 +187,16 @@
 <script>
 import Floor from "../../components/Floor.vue";
 import NavTop from "../../components/NavTop.vue";
-import Collect from './components/Collect.vue';
+import Collect from "./components/Collect.vue";
 import PersonWeb from "./components/personWeb.vue";
 export default {
   components: { NavTop, Floor, PersonWeb, Collect },
-  name: "User",
-  password:'123',
-  describe:'eee',
   data() {
     return {
       name: sessionStorage.getItem("username"),
       password: sessionStorage.getItem("password"),
+      describe: "eee",
+      collects: false,
     };
   },
 };
@@ -262,12 +278,22 @@ export default {
   border-radius: 50%;
 }
 @keyframes bottom {
-  0%   {left:0px; top:400px;}
-  100% {left:0px; top:0px;}
+  0% {
+    left: 0px;
+    top: 400px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
 }
- @keyframes right {
-  0%   {opacity: 0;}
-  100% {opacity: 1;}
+@keyframes right {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .bottomLine {
   text-align: center;
@@ -285,5 +311,4 @@ export default {
   height: 24px;
   vertical-align: middle;
 }
-
 </style>
