@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-top></nav-top>
-    <search></search>
+    <search :v="this.$route.query.value"></search>
     <content-main></content-main>
     <floor></floor>
   </div>

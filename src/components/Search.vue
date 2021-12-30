@@ -21,14 +21,15 @@
 <script>
 export default {
   name: "Search",
+  props: { v: String },
   data() {
     return {
-      value: "",
+      value: this.v,
     };
   },
   methods: {
     search() {
-      this.$router.push("/search");
+      this.$router.push({ path: "/search", query: { value: this.value } });
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="glow" @click.self="clickToURL(id)">
+    <div class="glow" @click.self="clickToURL()">
       <div
         class="img"
         :style="{
@@ -38,8 +38,8 @@ export default {
     fun(this.id - 1);
   },
   methods: {
-    clickToURL(id) {
-      console.log("点击了卡片" + id);
+    clickToURL() {
+      console.log("点击了卡片" + this.tab.card_id);
     },
     currentUserLike() {
       if (this.card_list == null) {

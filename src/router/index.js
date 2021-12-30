@@ -4,6 +4,12 @@ import Index from '../views/index.vue'
 
 Vue.use(VueRouter)
 
+const originalPush = VueRouter.prototype.push
+
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 const routes = [{
     path: '/',
     name: 'index',
@@ -22,7 +28,10 @@ const routes = [{
   {
     path: '/search',
     name: 'search',
-    component: () => import('../views/SearchList.vue')
+    component: () => import('../views/SearchList.vue'),
+    props: route => ({
+      query: route.query.value
+    })
   }
 
 ]

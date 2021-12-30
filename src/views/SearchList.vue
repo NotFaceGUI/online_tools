@@ -1,10 +1,22 @@
 <template>
   <div class="list">
     <nav-top></nav-top>
-    <search></search>
+    <search :v="this.$route.query.value"></search>
     <div class="content">
+      <div
+        v-if="flag"
+        style="height: 60px; line-height: 80px; color: #242424; font-size: 30px"
+      >
+        没有这个工具，请换个关键词查询
+      </div>
       <div class="gird">
-        <card :id="id + 1" :tab="tab" :card_list="card_list"></card>
+        <card
+          v-for="(item, i) in tab"
+          :key="i"
+          :id="i + 1"
+          :tab="item"
+          :card_list="card_list"
+        ></card>
       </div>
     </div>
     <floor></floor>
@@ -21,17 +33,50 @@ export default {
   name: "searchList",
   data() {
     return {
-      tab: {
-        card_id: 1,
-        t_id: 1,
-        name: "hex",
-        title: "hex转字符串",
-        desc: "hex和字符串互转",
-        numberOfCollections: 1,
-      },
+      tab: [],
       card_list: [1],
-      id: 0,
+      flag: false,
     };
+  },
+  watch: {
+    $route(to, form) {
+      console.log(to, form);
+      if (to.query.value != form.query.value) {
+        this.req();
+      }
+    },
+  },
+  mounted() {
+    this.req();
+  },
+  methods: {
+    req() {
+      this.axios
+        .get("/online/api/CardServlet", {
+          params: {
+            current: -1,
+            value: this.$route.query.value,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          this.tab = res.data;
+          if (res.data == null || res.data.length <= 0) {
+            this.flag = true;
+          }
+
+          this.axios
+            .get("/online/api/NumberServlet", {
+              params: {
+                username: sessionStorage.getItem("username"),
+              },
+            })
+            .then((res) => {
+              // console.log(res);
+              this.card_list = res.data.data;
+            });
+        });
+    },
   },
 };
 </script>
@@ -42,6 +87,7 @@ export default {
   margin-top: 30px;
   padding: 13px 0;
   width: 70%;
+
   max-width: 1226px;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.8);
