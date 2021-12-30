@@ -32,7 +32,13 @@ const routes = [{
     props: route => ({
       query: route.query.value
     })
-  }
+  },
+  {
+    path: '/tool/:name',
+    name: 'tool',
+    component: () => import('../views/card/CardPage.vue')
+  },
+  
 
 ]
 

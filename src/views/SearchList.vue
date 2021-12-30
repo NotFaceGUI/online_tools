@@ -63,6 +63,8 @@ export default {
           this.tab = res.data;
           if (res.data == null || res.data.length <= 0) {
             this.flag = true;
+          } else {
+            this.flag = false;
           }
 
           this.axios

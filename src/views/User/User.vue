@@ -142,6 +142,8 @@
         </div>
         <div class="LeftBottom">
           <button
+            @click="show"
+            onclick="location.href='../../'"
             type="button"
             style="margin-top: 4%; letter-spacing: 7px; width: 90%"
             class="login_button"
@@ -157,6 +159,7 @@
             查看收藏</button
           ><br />
           <button
+            @click="exit"
             type="button"
             style="margin-top: 15%; letter-spacing: 7px; width: 90%"
             class="login_button"
@@ -166,11 +169,7 @@
         </div>
       </div>
       <div class="RightForm">
-        <person-web
-          :name="name"
-          :password="password"
-          :describe="describe"
-        ></person-web>
+        <person-web :name="name" :describe="describe"></person-web>
         <collect :collects="collects"></collect>
       </div>
       <div class="bottomLine">
@@ -189,26 +188,45 @@ import Floor from "../../components/Floor.vue";
 import NavTop from "../../components/NavTop.vue";
 import Collect from "./components/Collect.vue";
 import PersonWeb from "./components/personWeb.vue";
+
 export default {
   components: { NavTop, Floor, PersonWeb, Collect },
-  mounted(){
-    this.axios
-        .post(
-          "/online/api/DemoServlet",
-          this.qs.stringify({
-            username: this.name,
-          }),
-          { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
-        ).then(res => {
-          console.log(res);
-        })
-  },
   data() {
     return {
       name: sessionStorage.getItem("username"),
-      describe: "eee",
+      describe: sessionStorage.getItem("describe"),
       collects: false,
     };
+  },
+  methods: {
+    show() {
+      console.log(this.password);
+    },
+    exit() {
+      console.log(123);
+      sessionStorage.removeItem("username");
+      sessionStorage.removeItem("password");
+      sessionStorage.removeItem("describe");
+      this.name = sessionStorage.getItem("username");
+      this.password = sessionStorage.getItem("password");
+      this.describe = sessionStorage.getItem("describe");
+    },
+  },
+  mounted() {
+    this.axios
+      .post(
+        "/online/api/PersonWebServlet",
+        this.qs.stringify({
+          username: this.name,
+        }),
+        { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+      )
+      .then((res) => {
+        if (res.data) {
+          sessionStorage.setItem("username", res.data.username);
+          sessionStorage.setItem("describe", res.data.describe);
+        }
+      });
   },
 };
 </script>

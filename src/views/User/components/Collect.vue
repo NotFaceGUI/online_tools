@@ -39,7 +39,7 @@ export default {
 .collect {
   margin-top: 2%;
   border-top: 2px #c2c0c0 dashed;
-  background-color: turquoise;
+  background-color: rgba(185, 211, 208, 0.192);
   border-radius: 4px;
   position: relative;
   animation-name: right;

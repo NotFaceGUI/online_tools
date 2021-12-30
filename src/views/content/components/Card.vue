@@ -4,7 +4,8 @@
       <div
         class="img"
         :style="{
-          'background-image': 'url(' + require('@/assets/' + tab.name + '.png') + ')',
+          'background-image':
+            'url(' + require('@/assets/' + tab.name + '.png') + ')',
         }"
       ></div>
       <div class="title">
@@ -40,6 +41,7 @@ export default {
   methods: {
     clickToURL() {
       console.log("点击了卡片" + this.tab.card_id);
+      this.$router.push({ name: "tool", params: { name: this.tab.name } });
     },
     currentUserLike() {
       if (this.card_list == null) {
