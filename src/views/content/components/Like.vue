@@ -98,6 +98,13 @@ export default {
     setTimeout(() => {
       this.state = this.topState;
     }, 500);
+    // let a = setInterval(() => {
+    //   this.state = this.topState;
+
+    //   if (this.state == this.topState) {
+    //     clearInterval(a);
+    //   }
+    // }, 100);
   },
   methods: {
     add() {

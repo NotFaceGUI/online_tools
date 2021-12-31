@@ -172,12 +172,12 @@
         <person-web :name="name" :describe="describe"></person-web>
         <collect :collects="collects"></collect>
       </div>
-      <div class="bottomLine">
+      <!-- <div class="bottomLine">
         <a href="https://github.com/NotFaceGUI" class="icon github"></a>
         <a href="#" class="icon twitter"></a>
         <a href="#" class="icon wechat"></a>
         <a href="#" class="icon qq"></a>
-      </div>
+      </div> -->
     </div>
     <floor></floor>
   </div>
@@ -237,6 +237,7 @@ export default {
   text-align: left;
   margin: auto;
   margin-top: 3%;
+  padding-bottom: 13px;
   border-radius: 4px;
   max-width: 1226px;
   border-radius: 15px;

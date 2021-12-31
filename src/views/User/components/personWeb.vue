@@ -15,7 +15,7 @@
             v-model="name"
           />
         </dt>
-        <dt><label>你可以在此修改你喜欢的用户名哦~~~</label></dt>
+        <dt><label></label></dt>
       </dl>
       <dl class="form-group">
         <dt>
@@ -31,13 +31,13 @@
             onchange="this.readOnly=true"
           ></textarea>
         </dt>
-        <dt><label>你可以在此修改你喜欢的个人简介哦~~~</label></dt>
+        <dt><label></label></dt>
       </dl>
       <button id="bt" type="button" @click="submit" class="btn">
         提交修改
       </button>
     </div>
-    <div class="RightMain">基本信息</div>
+    <!-- <div class="RightMain">基本信息</div> -->
   </div>
 </template>
 <script>
@@ -90,8 +90,11 @@ export default {
   border-radius: 3%;
 }
 .RightTop {
+  position: relative;
+  
   letter-spacing: normal;
   width: 100%;
+  height: 180px;
   border-top: 3px #000000f3 dashed;
   margin-top: 1%;
 }
@@ -169,6 +172,13 @@ button {
   border-radius: 6%;
 }
 .btn {
-  margin-left: 23%;
+  width: 100px;
+  position: absolute;
+  top: 130px;
+  left: calc(50% - 50px);
+}
+
+dt {
+  text-align: center;
 }
 </style>

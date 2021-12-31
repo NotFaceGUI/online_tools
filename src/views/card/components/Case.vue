@@ -43,12 +43,23 @@ textarea {
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 10px;
   height: 320px;
-  background-color: #adadad65;
+  /* background-color: #adadad65; */
   line-break: auto;
 }
 .login_button{
     width: 120px;
     height: 36px;
     margin-left: 10px;
+}
+
+textarea {
+    background-color: rgba(240, 248, 255, 0);
+    transition: all 0.3s ease;
+}
+
+
+textarea:focus {
+  border: 2px solid var(--bg-color);
+  background-color: rgba(29, 29, 29, 0);
 }
 </style>

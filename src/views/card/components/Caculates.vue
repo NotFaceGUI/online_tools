@@ -32,9 +32,7 @@
       </dl>
       <dl>
         <dt><label class="label2">最小公倍数</label></dt>
-        <dt>
-          数a|数b
-        </dt>
+        <dt>数a|数b</dt>
         <dt>
           <input id="i5" v-model="v5" type="text" /><span
             style="font-style: italic"
@@ -52,6 +50,7 @@
 
 <script>
 export default {
+  name: "caculates",
   data() {
     return {
       text: "123",
@@ -133,7 +132,7 @@ export default {
   vertical-align: top;
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 10px;
-  background-color: #adadad65;
+  /* background-color: #adadad65; */
 }
 .login_button {
   width: 50px;
@@ -160,8 +159,8 @@ dl {
   letter-spacing: 3px;
 }
 dt {
-text-align: left;
-margin-left: 10%;
+  text-align: left;
+  margin-left: 10%;
 }
 .label1 {
   font-size: 15px;
@@ -170,7 +169,16 @@ margin-left: 10%;
   text-align-last: justify;
   display: inline-block;
 }
-.label2{
-    color: rgba(8, 8, 8, 0.822);
+.label2 {
+  color: rgba(8, 8, 8, 0.822);
+}
+
+input[type="text"] {
+  height: 25px;
+}
+
+input:focus {
+  border: 2px solid var(--bg-color);
+  background-color: rgba(29, 29, 29, 0);
 }
 </style>

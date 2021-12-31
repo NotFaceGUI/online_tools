@@ -21,7 +21,7 @@
       <div class="clear"></div>
     </div>
     <div class="tab_content">
-      <tag-content :current="current" :tab="tab"></tag-content>
+      <tag-content :current="current" :tab="tab" :key="ip"></tag-content>
     </div>
   </div>
 </template>
@@ -97,6 +97,7 @@ export default {
       },
       current: 0,
       isLoading: true,
+      ip: 0,
     };
   },
   mounted() {
@@ -111,6 +112,7 @@ export default {
   methods: {
     // 当切换值的时候，发送请求获取对应的数据
     req() {
+      this.ip += 1;
       this.isLoading = true;
       this.axios
         .get("/online/api/CardServlet", {

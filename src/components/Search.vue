@@ -8,10 +8,7 @@
     />
     <div class="hotWord">
       <ul class="list">
-        <li><a href="">工具</a></li>
-        <li><a href="">工具</a></li>
-        <li><a href="">工具</a></li>
-        <li><a href="">工具</a></li>
+        <li v-for="item in hotList" :key="item"><router-link :to="{ name: 'tool', params: { name: item } }">{{item}}</router-link></li>
       </ul>
       <div class="clear"></div>
     </div>
@@ -25,7 +22,14 @@ export default {
   data() {
     return {
       value: this.v,
+      hotList: [],
     };
+  },
+  mounted() {
+    this.axios.get("/online/api/HotListServlet").then((res) => {
+      console.log(res);
+      this.hotList = res.data;
+    });
   },
   methods: {
     search() {
